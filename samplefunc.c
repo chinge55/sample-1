@@ -29,6 +29,20 @@ struct ast *newnum(double d)
     return (struct ast *)temp;
 }
 
+ struct ast *newassign(int nodetype, char *type, char *name)
+ {
+     struct var_val *temp = malloc(sizeof(struct var_val));
+     if(!temp)
+     {
+         yyerror("Out of space");
+         exit(0);
+     }
+     temp->nodetype = nodetype;
+     temp->type = type;
+     temp-> name = name;
+     return (struct ast*)temp;
+ }
+
 double eval(struct ast *a)
 {
     double v;

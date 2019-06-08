@@ -9,6 +9,8 @@
 [-+=/*|()]      {return yytext[0];}
 [0-9]+          {yylval.d = atof(yytext); return NUMBER;}
 \n              {return EOL;}
+[a-z]+          {return NAME;}
+"int"           {return INT;}
 "//".*
 [ \t]           {/*ignore whitespace*/}
 %%

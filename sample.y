@@ -8,11 +8,13 @@
 {
     struct ast *a;
     double d;
+    char *c;
 }
 
 %token <d> NUMBER
 %token EOL
-
+%token <c>NAME
+%token <c>INT
 %type <a> exp factor term
 
 %%
@@ -39,5 +41,6 @@ term: NUMBER                {$$ = newnum($1);}
     | '|' term              {$$ = newast('|', $2, NULL);}
     | '(' exp ')'           {$$ = $2;}
     | '-' term              {$$ = newast('M', $2, NULL);}
+    | INT NAME              {$$ = newassign('D', $1, $2);}
     ;
 %%

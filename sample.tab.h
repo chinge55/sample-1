@@ -46,7 +46,9 @@ extern int yydebug;
   enum yytokentype
   {
     NUMBER = 258,
-    EOL = 259
+    EOL = 259,
+    NAME = 260,
+    INT = 261
   };
 #endif
 
@@ -59,8 +61,9 @@ union YYSTYPE
 
     struct ast *a;
     double d;
+    char *c;
 
-#line 64 "sample.tab.h" /* yacc.c:1909  */
+#line 67 "sample.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
