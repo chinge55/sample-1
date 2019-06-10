@@ -62,8 +62,9 @@ union YYSTYPE
     struct ast *a;
     double d;
     char *c;
+    char* name;
 
-#line 67 "sample.tab.h" /* yacc.c:1909  */
+#line 68 "sample.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

@@ -8,9 +8,8 @@
 %%
 [-+=/*|()]      {return yytext[0];}
 [0-9]+          {yylval.d = atof(yytext); return NUMBER;}
-\n              {return EOL;}
-[a-z]+          {return NAME;}
-"int"           {return INT;}
+[a-z]+          {yylval.name = yytext; return NAME;}
+"int"           {yylval.c = yytext; return INT;}
 "//".*
 [ \t]           {/*ignore whitespace*/}
 %%

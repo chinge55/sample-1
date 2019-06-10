@@ -45,7 +45,7 @@ struct ast *newnum(double d)
 
 double eval(struct ast *a)
 {
-    double v;
+    /*double v;
     switch(a->nodetype)
     {
     case 'K': v = ((struct numval*)a)->number; break;
@@ -58,25 +58,26 @@ double eval(struct ast *a)
     default: printf("ERROR On Node:%c\n",a->nodetype);
     }
     return v;
+    */
 }
 
 void treefree(struct ast *a)
 {
-    switch(a->nodetype)
-    {
-    case '+':
-    case '-':
-    case '*':
-    case '/':
-        treefree(a->r);
-    case '|':
-    case 'M':
-        treefree(a->l);
-    case 'K':
-        free(a);
-        break;
-    default: printf("Internal ERROR on Node %c\n",a->nodetype);
-    }
+    // switch(a->nodetype)
+    // {
+    // case '+':
+    // case '-':
+    // case '*':
+    // case '/':
+    //     treefree(a->r);
+    // case '|':
+    // case 'M':
+    //     treefree(a->l);
+    // case 'K':
+    //     free(a);
+    //     break;
+    // default: printf("Internal ERROR on Node %c\n",a->nodetype);
+    // }
 }
 
 void yyerror(char *s, ...)

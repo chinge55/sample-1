@@ -120,8 +120,9 @@ union YYSTYPE
     struct ast *a;
     double d;
     char *c;
+    char* name;
 
-#line 125 "sample.tab.c" /* yacc.c:355  */
+#line 126 "sample.tab.c" /* yacc.c:355  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -138,7 +139,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 142 "sample.tab.c" /* yacc.c:358  */
+#line 143 "sample.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -436,8 +437,8 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    21,    21,    22,    27,    30,    31,    32,    35,    36,
-      37,    40,    41,    42,    43,    44
+       0,    22,    22,    23,    28,    31,    32,    33,    36,    37,
+      38,    41,    42,    43,    44,    45
 };
 #endif
 
@@ -1217,77 +1218,77 @@ yyreduce:
   switch (yyn)
     {
         case 3:
-#line 22 "sample.y" /* yacc.c:1646  */
+#line 23 "sample.y" /* yacc.c:1646  */
     {
-            printf("=%4.4g\n",eval((yyvsp[-1].a)));
-            treefree((yyvsp[-1].a));
-            printf(">");
+            // printf("=%4.4g\n",eval($2));
+            // treefree($2);
+            // printf(">");
         }
-#line 1227 "sample.tab.c" /* yacc.c:1646  */
+#line 1228 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
-#line 27 "sample.y" /* yacc.c:1646  */
+#line 28 "sample.y" /* yacc.c:1646  */
     {printf(">");}
-#line 1233 "sample.tab.c" /* yacc.c:1646  */
+#line 1234 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 31 "sample.y" /* yacc.c:1646  */
+#line 32 "sample.y" /* yacc.c:1646  */
     {(yyval.a) = newast('+', (yyvsp[-2].a), (yyvsp[0].a));}
-#line 1239 "sample.tab.c" /* yacc.c:1646  */
+#line 1240 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 32 "sample.y" /* yacc.c:1646  */
+#line 33 "sample.y" /* yacc.c:1646  */
     {(yyval.a) = newast('-', (yyvsp[-2].a), (yyvsp[0].a));}
-#line 1245 "sample.tab.c" /* yacc.c:1646  */
+#line 1246 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 36 "sample.y" /* yacc.c:1646  */
+#line 37 "sample.y" /* yacc.c:1646  */
     {(yyval.a) = newast('*', (yyvsp[-2].a), (yyvsp[0].a));}
-#line 1251 "sample.tab.c" /* yacc.c:1646  */
+#line 1252 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
-#line 37 "sample.y" /* yacc.c:1646  */
+#line 38 "sample.y" /* yacc.c:1646  */
     {(yyval.a) = newast('/', (yyvsp[-2].a), (yyvsp[0].a));}
-#line 1257 "sample.tab.c" /* yacc.c:1646  */
+#line 1258 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 40 "sample.y" /* yacc.c:1646  */
+#line 41 "sample.y" /* yacc.c:1646  */
     {(yyval.a) = newnum((yyvsp[0].d));}
-#line 1263 "sample.tab.c" /* yacc.c:1646  */
+#line 1264 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 41 "sample.y" /* yacc.c:1646  */
+#line 42 "sample.y" /* yacc.c:1646  */
     {(yyval.a) = newast('|', (yyvsp[0].a), NULL);}
-#line 1269 "sample.tab.c" /* yacc.c:1646  */
+#line 1270 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
-#line 42 "sample.y" /* yacc.c:1646  */
+#line 43 "sample.y" /* yacc.c:1646  */
     {(yyval.a) = (yyvsp[-1].a);}
-#line 1275 "sample.tab.c" /* yacc.c:1646  */
+#line 1276 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 14:
-#line 43 "sample.y" /* yacc.c:1646  */
+#line 44 "sample.y" /* yacc.c:1646  */
     {(yyval.a) = newast('M', (yyvsp[0].a), NULL);}
-#line 1281 "sample.tab.c" /* yacc.c:1646  */
+#line 1282 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 15:
-#line 44 "sample.y" /* yacc.c:1646  */
-    {(yyval.a) = newassign('D', (yyvsp[-1].c), (yyvsp[0].c));}
-#line 1287 "sample.tab.c" /* yacc.c:1646  */
+#line 45 "sample.y" /* yacc.c:1646  */
+    {(yyval.a) = newassign('D', (yyvsp[-1].c), (yyvsp[0].name));}
+#line 1288 "sample.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1291 "sample.tab.c" /* yacc.c:1646  */
+#line 1292 "sample.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1515,4 +1516,4 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 46 "sample.y" /* yacc.c:1906  */
+#line 47 "sample.y" /* yacc.c:1906  */

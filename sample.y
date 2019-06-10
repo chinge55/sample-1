@@ -9,20 +9,21 @@
     struct ast *a;
     double d;
     char *c;
+    char* name;
 }
 
 %token <d> NUMBER
 %token EOL
-%token <c>NAME
+%token <name>NAME
 %token <c>INT
 %type <a> exp factor term
 
 %%
 calclist:
         | calclist exp EOL{
-            printf("=%4.4g\n",eval($2));
-            treefree($2);
-            printf(">");
+            // printf("=%4.4g\n",eval($2));
+            // treefree($2);
+            // printf(">");
         }
         | calclist EOL {printf(">");}
         ;
